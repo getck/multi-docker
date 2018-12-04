@@ -3,21 +3,21 @@ services:
   - docker
 
 before_install:
-  - docker build -t chid1234/react-test -f ./client/Dockerfile.dev ./client
+  - docker build -t chida1234/react-test -f ./client/Dockerfile.dev ./client
 
 script:
-  - docker run chid1234/react-test npm test -- --coverage
+  - docker run chida1234/react-test npm test -- --coverage
 
 after_success:
-  - docker build -t chid1234/multi-client ./client
-  - docker build -t chid1234/multi-nginx ./nginx
-  - docker build -t chid1234/multi-server ./server
-  - docker build -t chid1234/multi-worker ./worker
+  - docker build -t chida1234/multi-client ./client
+  - docker build -t chida1234/multi-nginx ./nginx
+  - docker build -t chida1234/multi-server ./server
+  - docker build -t chida1234/multi-worker ./worker
 
   # docker login CLI
   - echo "$DOCKER_PASSWORD" | docker login -u "DOCKER_ID" --password-stdin
   # take images to docker hub
-  - docker push chid1234/multi-client
-  - docker push chid1234/multi-nginx
-  - docker push chid1234/multi-server
-  - docker push chid1234/multi-worker
+  - docker push chida1234/multi-client
+  - docker push chida1234/multi-nginx
+  - docker push chida1234/multi-server
+  - docker push chida1234/multi-worker
