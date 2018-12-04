@@ -15,7 +15,7 @@ after_success:
   - docker build -t chida1234/multi-worker ./worker
 
   # docker login CLI
-  - echo "$DOCKER_PASSWORD" | docker login -u "DOCKER_ID" --password-stdin
+  - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_ID" --password-stdin
   # take images to docker hub
   - docker push chida1234/multi-client
   - docker push chida1234/multi-nginx
