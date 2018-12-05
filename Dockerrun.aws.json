@@ -20,18 +20,17 @@
             "essential":false
         },
         {
-            "name": "ngnix",
+            "name": "nginx",
             "image": "chida1234/multi-nginx",
             "hostname" : "nginx",
             "essential": true,
             "portMappings": [
                 {
                     "hostport":80,
-                    "containedPort:'80'
-
+                    "containerPort":80
                 }
             ],
-            
+            "links": ["client","server"]
         }
     ]
 }
